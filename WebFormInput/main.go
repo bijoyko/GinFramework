@@ -25,6 +25,8 @@ func login(c *gin.Context) {
 	b := c.PostForm("password")
 	fmt.Println(a)
 	fmt.Println(b)
+	t, _ := template.ParseFiles("ThankYou.html")
+	t.Execute(c.Writer, nil)
 }
 
 func main() {
