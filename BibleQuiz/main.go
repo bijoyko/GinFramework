@@ -3,12 +3,21 @@ package main
 import (
 	"BibleQuiz/controllers"
 	"BibleQuiz/models"
+	"log"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	r := gin.Default()
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+	r := gin.New()
+	r.Use(gin.Logger())
+	r.LoadHTMLGlob("BibleQuiz/view/*.html")
 	db := models.SetupModels()
 	r.Use(func(c *gin.Context) {
 		c.Set("db", db)
@@ -17,5 +26,5 @@ func main() {
 	r.GET("/", controllers.MainPage)
 	r.POST("/next", controllers.ValidateNames)
 	r.POST("/submit", controllers.Form)
-	r.Run(":9090")
+	r.Run(":" + port)
 }
