@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bible Quiz IPC Ebenezar Kalyan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Bible Quiz</h1>
+<form action="/next" method="post">
+<div class="container-fluid">
+    <div class="jumbotron">
+        <main>
+            Firstname: <input type="text" name="Firstname"><br><br>
+            Lastname: <input type="text" name="Lastname"><br><br>
+            Please select a language of your choice<br><br>
+            <input type="radio" name="Language" id="language-A" value="English" />
+            <label for="language-A">English</label><br>
+            <input type="radio" name="Language" id="language-B" value="Malayalam" />
+            <label for="language-B">Malayalam</label><br>
+            <input type="submit" value="Next">
+        </main>
+    </div>
+    <div>
+        {{.}}
+    </div>
+</div>
+</form>
+</body>
+</html>
